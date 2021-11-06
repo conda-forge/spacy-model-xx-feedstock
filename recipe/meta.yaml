@@ -1,7 +1,7 @@
 {% set prefix = "spacy-model-" %}
 {% set lang = "xx" %}
 {% set name = lang + "_ent_wiki" %}
-{% set version = "2.0.0" %}
+{% set version = "3.2.0" %}
 
 package:
   name: {{ prefix }}{{ lang|lower }}
@@ -10,7 +10,7 @@ package:
 source:
   - folder: sm
     url: https://github.com/explosion/spacy-models/releases/download/{{ name }}_sm-{{ version }}/{{ name }}_sm-{{ version }}.tar.gz
-    sha256: 65d87a47bdde75d94879a1e6fba028d14f254e17b2692f170fe34a674dad8355
+    sha256: c6385d2c7cb0b5370f37a9bf4e9bc7b62f6f94e839c300ebca0d85fb1abeb8f3
 
 build:
   noarch: python
@@ -21,7 +21,7 @@ test:
     - echo "make lint happy"
 
 outputs:
-  - name: {{prefix}}{{ name }}_{{ size }}
+  - name: {{ prefix }}{{ name }}_{{ size }}
     script: build.sh  # [unix]
     script: build.bat  # [win]
     requirements:
@@ -43,7 +43,7 @@ outputs:
 about:
   home: https://spacy.io
   license: CC BY-SA 3.0
-  summary: 'Multi-lingual CNN trained on Nothman et al. (2013) Wikipedia corpus.'
+  summary: Multi-lingual CNN trained on Nothman et al. (2013) Wikipedia corpus.
 
   doc_url: https://spacy.io/models/xx
 
